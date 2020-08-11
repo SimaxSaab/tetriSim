@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ddd;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+#game {
+  width: 320px;
+  margin: 10px auto;
+  font-size: 16px;
+  position: relative;
+}
+
+.level {
+  padding-top: 13px;
+}
+
+#next {
+  width: 84px;
+  height: 84px;
+  position: relative;
+  top: -58px;
+  margin: 0 auto;
+  font-size: 0;
+  border: 2px solid red;
+}
+
+.main {
+  /* margin-top: -50px; */
+  width: 220px;
+  height: 420px;
+  margin: -55px auto 10px;
+  border: 10px solid silver;
+  font-size: 0;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid silver;
+  display: inline-block;
+}
+
+.movingCell {
+  background-color: #999;
+}
+
+.fixedCell {
+  background-color: green;
+}
+
+.filledCell {
+  background-color: red;
+}
+.controls {
+  margin-top: -7px;
+  margin-left: 15px;
+  display: none;
+}
+
+#start, #pause {
+  width: 40px;
+  height: 130px;
+  position: absolute;
+  top: 140px;
+  left: 5px;
+}
+
+#pause {
+  top:330px;
+  left: 275px;
+}
+
+#left, #right, #down, #rotation {
+  width: 60px;
+  height: 60px;
+  display: block;
+  float: left;
+  margin: 10px 10px 0 35px;
+  border-radius: 30px 0 0 30px;
+}
+
+#rotation {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  margin: 0;
+}
+
+#right {
+  margin: 10px 35px 0 10px;
+  border-radius: 0 30px 30px 0;
+}
+
+#down {
+  width: 60px;
+  height: 30px;
+  border-radius: 0 0 30px 30px;
+  margin: 10px 0 0 115px;
+}
+
+@media (max-width:361px) {
+  #game {
+    width: 360px;
+    font-size: 12px;
+    font-size: 26px;
+  }
+  .main {
+    width: 170px;
+    height: 320px;
+    margin: -65px auto 10px;
+  }
+  #next {
+    width: 64px;
+    height: 64px;
+  }
+  .cell {
+    width: 15px;
+    height: 15px;
+  }
+
+  .controls {
+    margin-left: 35px;
+    display: block;
+  }
+
+  #start {
+    top: 100px;
+    left: 30px;
+  }
+  #pause {
+    top: 245px;
+    left: 290px;
+  }
+}
