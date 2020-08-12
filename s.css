@@ -107,13 +107,11 @@ body {
 @media (max-width:361px) {
   #game {
     width: 360px;
-    font-size: 12px;
-    font-size: 26px;
   }
   .main {
     width: 170px;
     height: 320px;
-    margin: -65px auto 10px;
+    margin: -55px auto 10px;
   }
   #next {
     width: 64px;
@@ -134,7 +132,7 @@ body {
     left: 30px;
   }
   #pause {
-    top: 245px;
+    top: 186px;
     left: 290px;
   }
 }

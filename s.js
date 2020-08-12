@@ -304,14 +304,16 @@ document.onkeydown = function (e) {
   if(!paused && !stoped) { 
     if (e.keyCode === 37) {  
       actionLeft();
+      loopDraw();
     } else if (e.keyCode === 39) {
       actionRight();
+      loopDraw();
     } else if (e.keyCode === 40) {
       fall();
     } else if (e.keyCode === 38) {
       rotate();
-    }
-    loopDraw();
+      loopDraw();
+    }    
   }
 }
 
@@ -389,10 +391,10 @@ scoreE.innerHTML = score;
 levelE.innerHTML = currentLevel;
 
 draw();
-// start.focus();
+start.focus();
 pause.disabled=true;
 
-function startGame() {console.log(1);
+function startGame() {
   moveTetDown();
   if(!stoped) {
     loopDraw();
