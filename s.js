@@ -325,7 +325,7 @@ function loopDraw() {
 
 // left.addEventListener('click', actionLeft);
 rotation.addEventListener('click', rotate);
-right.addEventListener('click', actionRight);
+//right.addEventListener('click', actionRight);
 down.addEventListener('click', fall);
 left.addEventListener('touchstart', () => handleStart(actionLeft));
 left.addEventListener('touchend', () => handleEnd(timeForLeftAction));
