@@ -304,10 +304,10 @@ document.onkeydown = function (e) {
   if(!paused && !stoped) { 
     if (e.keyCode === 37) {  
       actionLeft();
-      loopDraw();
+      // loopDraw();
     } else if (e.keyCode === 39) {
       actionRight();
-      loopDraw();
+      // loopDraw();
     } else if (e.keyCode === 40) {
       fall();
     } else if (e.keyCode === 38) {
@@ -351,11 +351,13 @@ function fall() {
 function actionLeft() {
   active.x -= 1;
   if (hasColisions()) active.x += 1;
+  loopDraw();
 }
 
 function actionRight() {
   active.x += 1;
   if (hasColisions()) active.x -= 1;
+  loopDraw();
 }
 
 pause.addEventListener('click', (e) => {
