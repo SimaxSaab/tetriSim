@@ -332,7 +332,7 @@ left.addEventListener('touchend', handleEnd);
 
 function handleStart(action) {
   action();
-  timeForAction = setTimeout(function() {handleStart(action)}, 40);
+  timeForAction = setTimeout(function() {handleStart(action)}, 80);
 }
 
 function handleEnd() {
