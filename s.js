@@ -32,7 +32,7 @@ let playfield = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
-let mainTimer, fillTimer, borderCount = 0;
+let mainTimer, fillTimer, timeForAction, borderCount = 0;
 let paused = false, stoped = false;
 let currentLevel = 1;
 let possibleLevels = {
@@ -323,10 +323,24 @@ function loopDraw() {
   drawNext();
 }
 
-left.addEventListener('click', actionLeft);
+// left.addEventListener('click', actionLeft);
 rotation.addEventListener('click', rotate);
 right.addEventListener('click', actionRight);
 down.addEventListener('click', fall);
+left.addEventListener('touchstart', () => handleStart(actionLeft));
+left.addEventListener('touchend', handleEnd);
+
+function handleStart(action) {
+  action();
+  timeForAction = setTimeout(function() {handleStart(action)}, 5);
+}
+
+function handleEnd() {
+  clearTimeout(timeForAction);
+}
+// rotation.addEventListener('click', rotate);
+// right.addEventListener('click', actionRight);
+// down.addEventListener('click', fall);
 
 function fall() {
   if(!paused) {
