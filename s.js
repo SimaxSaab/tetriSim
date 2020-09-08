@@ -327,19 +327,23 @@ function loopDraw() {
 rotation.addEventListener('click', rotate);
 //right.addEventListener('click', actionRight);
 down.addEventListener('click', fall);
-left.addEventListener('touchstart', () => handleStart(actionLeft, timeForLeftAction));
-left.addEventListener('touchend', () => handleEnd(timeForLeftAction));
-right.addEventListener('touchstart', () => handleStart(actionRight, timeForRightAction));
-right.addEventListener('touchend', () => handleEnd(timeForRightAction));
+left.addEventListener('touchstart', handleStartL);
+left.addEventListener('touchend', () => clearTimeout(timeForLeftAction));
+right.addEventListener('touchstart', handleStartR);
+right.addEventListener('touchend', () => clearTimeout(timeForRightAction));
 
-function handleStart(action, time) {
-  action();
-  time = setTimeout(function() {handleStart(action, time)}, 100);
+function handleStartL() {
+  actionLeft();
+  timeForLeftAction = setTimeout(handleStartL, 100);
+}
+function handleStartR() {
+  actionRight();
+  timeForRightAction = setTimeout(handleStartR, 100);
 }
 
-function handleEnd(time) {
-  clearTimeout(time);
-}
+// function handleEnd(time) {
+//   clearTimeout(time);
+// }
 
 function fall() {
   if(!paused) {
