@@ -334,7 +334,7 @@ right.addEventListener('touchend', () => handleEnd(timeForRightAction));
 
 function handleStart(action, time) {
   action();
-  time = setTimeout(function() {handleStart(action)}, 100);
+  time = setTimeout(function() {handleStart(action, time)}, 100);
 }
 
 function handleEnd(time) {
