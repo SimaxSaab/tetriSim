@@ -327,14 +327,14 @@ function loopDraw() {
 rotation.addEventListener('click', rotate);
 //right.addEventListener('click', actionRight);
 down.addEventListener('click', fall);
-left.addEventListener('touchstart', () => handleStart(actionLeft));
+left.addEventListener('touchstart', () => handleStart(actionLeft, timeForLeftAction));
 left.addEventListener('touchend', () => handleEnd(timeForLeftAction));
-right.addEventListener('touchstart', () => handleStart(actionRight));
+right.addEventListener('touchstart', () => handleStart(actionRight, timeForRightAction));
 right.addEventListener('touchend', () => handleEnd(timeForRightAction));
 
-function handleStart(action) {
+function handleStart(action, time) {
   action();
-  timeForLeftAction = setTimeout(function() {handleStart(action)}, 100);
+  time = setTimeout(function() {handleStart(action)}, 100);
 }
 
 function handleEnd(time) {
