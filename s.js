@@ -340,9 +340,6 @@ function handleStart(action) {
 function handleEnd(time) {
   clearTimeout(time);
 }
-// rotation.addEventListener('click', rotate);
-// right.addEventListener('click', actionRight);
-// down.addEventListener('click', fall);
 
 function fall() {
   if(!paused) {
