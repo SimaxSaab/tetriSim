@@ -32,7 +32,7 @@ let playfield = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
-let mainTimer, fillTimer, timeForAction, borderCount = 0;
+let mainTimer, fillTimer, timeForLeftAction, timeForRightAction, borderCount = 0;
 let paused = false, stoped = false;
 let currentLevel = 1;
 let possibleLevels = {
@@ -328,15 +328,17 @@ rotation.addEventListener('click', rotate);
 right.addEventListener('click', actionRight);
 down.addEventListener('click', fall);
 left.addEventListener('touchstart', () => handleStart(actionLeft));
-left.addEventListener('touchend', handleEnd);
+left.addEventListener('touchend', () => handleEnd(timeForLeftAction));
+right.addEventListener('touchstart', () => handleStart(actionRight));
+right.addEventListener('touchend', () => handleEnd(timeForRightAction));
 
 function handleStart(action) {
   action();
-  timeForAction = setTimeout(function() {handleStart(action)}, 80);
+  timeForLeftAction = setTimeout(function() {handleStart(action)}, 100);
 }
 
-function handleEnd() {
-  clearTimeout(timeForAction);
+function handleEnd(time) {
+  clearTimeout(time);
 }
 // rotation.addEventListener('click', rotate);
 // right.addEventListener('click', actionRight);
